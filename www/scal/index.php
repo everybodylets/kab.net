@@ -1,4 +1,5 @@
 <?
+header('Content-Type: text/html; charset=utf-8');
 session_start();
 if ($_SESSION['authorized']<>1) {
     header("Location: login");
@@ -18,7 +19,7 @@ $messages = $chat->getMessages();
     <link rel="stylesheet" href="chat/core.css" />
     <link rel="stylesheet" href="lib/css/jquery-ui.css" />
 
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
@@ -94,7 +95,7 @@ MSG;
 <script type="text/javascript" src="js/loadclient.js"></script>
 <script type="text/javascript" src="js/loadfiles.js"></script>
 <script type="text/javascript" src="js/search.js"></script>
-<script type="text/javascript" src="js/findcity.js"></script>
+<!script type="text/javascript" src="js/findcity.js"><!/script>
 <script type="text/javascript">
     function louad(cal){
         if(cal===0){
@@ -107,26 +108,36 @@ MSG;
     louad(0);
     var expandedCat = false;
     function showCheckboxesCat() {
-        var checkboxes = document.getElementById("checkboxesCat");
+        var checkboxes = document.getElementById("checkboxesDop");
         if (!expandedCat) {
             checkboxes.style.display = "block";
             expandedCat = true;
-            document.getElementById("OptCat").innerHTML = "Закрыть выбор";
+            document.getElementById("OptDop").innerHTML = "Закрыть выбор";
         } else {
             checkboxes.style.display = "none";
             expandedCat = false;
-            document.getElementById("OptCat").innerHTML = "Выберите категорию";
+            document.getElementById("OptDop").innerHTML = "Выберите категорию";
 
-            var inputElems = document.getElementsByName("categ[]"),
-                count = 0;
-            for (var i=0; i<inputElems.length; i++) {
-                if (inputElems[i].type === "checkbox" && inputElems[i].checked === true){
-                    count++;
 
-                }
-            }
-            document.getElementById("CountCat").innerHTML = "Выбрано: " + count;
         }
+    }
+    function countDop(){
+        var inputElems = document.getElementsByName("categ[]"),
+            count = 0;
+            countPrice = 0;
+        for (var i=0; i<inputElems.length; i++) {
+            if (inputElems[i].type === "checkbox" && inputElems[i].checked === true){
+                if(count<3){
+                    count++;
+                    countPrice = parseFloat(countPrice)+parseFloat(inputElems[i].id);}
+                else{
+                    inputElems[i].checked = false;}
+
+            }
+        }
+        $("#costDop").val(countPrice.toFixed(2));
+        document.getElementById("CountCat").innerHTML = "Выбрано: " + count;
+
     }
 
 </script>

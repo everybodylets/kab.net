@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 session_start();
 if ($_SESSION['authorized']<>1) {
     header("Location: /scal/login");

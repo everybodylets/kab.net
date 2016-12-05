@@ -11,8 +11,6 @@
     <file url="file://$PROJECT_DIR$/www/chat/public/02_index.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/chat/public/ajax/get_messages.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/chat/public/scripts/chat.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/dompdf/dompdf/lib/fonts/dompdf_font_family_cache.dist.php" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/dompdf/dompdf/src/Options.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/ind.htm" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/addclient.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/addgetclient.php" charset="UTF-8" />
@@ -37,6 +35,8 @@
     <file url="file://$PROJECT_DIR$/www/scal/pdf.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/search.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/searchcity.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/scal/select_dop.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/select_op.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/scal/testcl.php" charset="UTF-8" />
   </component>
 </project>

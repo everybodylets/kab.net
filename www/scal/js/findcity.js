@@ -9,12 +9,12 @@ $(function (){
                 data: {"search": search},
                 cache: false,
                 success: function (response) {
+                    $(".checkboxescity").toggle();
                     $(".checkboxescity").html(response);
                     $(".city_s").click(function(){
-                        alert("trtretret");
                         $("#city").html(this);
                         $(".checkboxescity").toggle();
-                    })
+                    });
                 }
             });
         }

@@ -10,5 +10,6 @@ $opt = array(
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
 );
 $pdo = new PDO($dsn, $user, $pass, $opt);
+$pds = new PDO($dsn, $user, $pass, $opt);
 
 ?>

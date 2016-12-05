@@ -1,4 +1,5 @@
 <?
+header('Content-Type: text/html; charset=utf-8');
 session_start();
 if ($_SESSION['authorized']<>1) {
     header("Location: login");
@@ -7,11 +8,11 @@ if ($_SESSION['authorized']<>1) {
 require("lib/base.php");
 $client_id = $_GET['id'];
 
-$query = $pdo->prepare("SELECT * FROM patients, polises, citys, price WHERE patients.id=? AND polises.patid=patients.id AND patients.city=citys.id");
+$query = $pdo->prepare("SELECT * FROM patients, polises, oc_t_city, price WHERE patients.id=? AND polises.patid=patients.id AND patients.city=oc_t_city.pk_i_id");
 $query->execute(array($client_id));
 $final=$query->fetch();
 $queryadd = $pdo->prepare("SELECT * FROM price JOIN addprice WHERE polisid=? AND price.id=priceid");
-$queryadd->execute(array($final['polis']));
+$queryadd->execute(array($final['polises.id']));
 $finaladd = $queryadd->fetchAll();
 
 $dir = "uploads/".$client_id;
@@ -56,7 +57,7 @@ $files = @array_diff($files1, array('.', '..'));
     <section class="secleft">
         <label class="label">Город</label>
         <label class="input state-success">
-            <input type="text" name="city" autocomplete="off" value="<?=$final['cityname']; ?>">
+            <input type="text" name="city" autocomplete="off" value="<?=$final['s_name']; ?>">
         </label>
             <label class="label">Адрес проживания</label>
             <label class="input state-success">
@@ -133,12 +134,14 @@ $files = @array_diff($files1, array('.', '..'));
         $htmladd .= $row['price'];
         $htmladd .= '" ></label ></section >';}
         echo $htmladd; ?>
+
+
     </fieldset>
     <fieldset>
         <section>
         <label class="label">История болезни</label>
             <label class="textarea state-success">
-                <textarea name="medstory"><?=$final['passport']; ?></textarea>
+                <textarea name="medstory"><?=$final['medstory']; ?></textarea>
             </label>
         <label class="label">Загрузка файлов</label>
             <label class="inputfiles state-success">

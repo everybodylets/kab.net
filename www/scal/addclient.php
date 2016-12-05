@@ -1,4 +1,5 @@
 <?
+header('Content-Type: text/html; charset=utf-8');
 session_start();
 if ($_SESSION['authorized']<>1) {
     header("Location: login");
@@ -45,7 +46,7 @@ $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
         <section class="secleft">
             <label class="label">Город</label>
             <label class="input state-success">
-                <input type="text" name="cityid" style="display: none">
+                <input id="cityid" type="text" name="cityid" style="display: none">
                 <input id="city" type="text" name="city" autocomplete="off">
                 <div class="checkboxescity"></div>
             </label>
@@ -83,10 +84,10 @@ $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
 
         <section style="clear: both"></section>
         <section class="sec">
-            <label class="label">Операция</label>
+            <label class="label">Нозология</label>
             <label class="select state-success">
-                <select class="long" id="selnoz">
-                    <option value="0" selected disabled>Операция</option>
+                <select class="long" id="selnoz" name="noz">
+                    <option value="0" selected disabled>Нозология</option>
                     <?
                     $queryadd->execute(array('0'));
                     $finaladd = $queryadd->fetchAll();
@@ -105,27 +106,38 @@ $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
         </section>
         <section style = "clear: both; margin: 0;" ></section >
         <section class="sec" >
-            <label class="label">Категория</label>
-            <div class="multiselect">
-                <div class="selectBox" onclick="showCheckboxesCat()">
+            <label class="label">Операция</label>
                     <label class="select state-success">
-                        <select class="long">
-                            <option id="OptCat">Выберите категорию</option>
+                        <select class="long" id="checkboxesOp" name="op">
+                            <option id="OptCat" selected disabled>Выберите операцию</option>
                         </select>
                     </label>
-                    <div class="overSelect"></div>
-                </div>
-                <div id="checkboxesCat" class="checkboxes long">
-                </div>
-                </label>
-                <div class="note note-success"><span id="CountCat">Выбрано: 0</span></div>
-            </div>
         </section>
+        <section style = "clear: both; margin: 0;" ></section >
         <section class="sec" >
-            <label class="label" > Цена</label>
+            <label class="label">Дополнения</label>
+                        <div class="multiselect">
+                            <div class="selectBox" onclick="showCheckboxesCat()">
+            <label class="select state-success">
+                <select class="long" id="checkboxes">
+                    <option id="OptDop" >Выберите дополнения</option>
+                </select>
+            </label>
+                                <div class="overSelect"></div>
+                            </div>
+
+                            <div id="checkboxesDop" class="checkboxes long"></div>
+                            </label>
+                            <div class="note note-success"><span id="CountCat">Выбрано: 0</span></div>
+                        </div>
+        </section>
+        <section class="sec">
+            <label class="label">Цена</label>
             <label class="input state-success">
-                <input type = "text" name = "price" autocomplete = "off">
-            </label ></section >
+                <input type="text" id="costDop">
+            </label>
+        </section>
+
 
     </fieldset>
     <fieldset>
@@ -141,30 +153,35 @@ $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
         </section></fieldset>
 </form>
 <div id="msg"></div>
-
 <script>
-    $(function (){
-        $("#city").keyup(function(){
+    $(function () {
+        $("#city").keyup(function () {
             var search = $("#city").val();
-            console.log(search);
-            if (search.length>1){
+            if (search.length > 3) {
                 $.ajax({
                     type: "POST",
                     url: "searchcity.php",
                     data: {"search": search},
                     cache: false,
                     success: function (response) {
+                        $(".checkboxescity").show();
                         $(".checkboxescity").html(response);
-                        })
+                        $(".city_s").click(function () {
+                            $("#cityid").val($(this).attr("id"));
+                            $("#city").val($(this).text());
+                            $(".checkboxescity").hide();
+                        });
+
                     }
                 });
-            else{
+            }
+            else {
                 $(".checkboxescity").html('');
 
+            }
         });
-    $(".city_s").click(function(){
-        $("#city").val($(this).text());
-        $(".checkboxescity").hide();
-    });
-    });
+
+    })
+
+
 </script>

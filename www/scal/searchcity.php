@@ -17,7 +17,7 @@ WHERE oc_t_city.s_name LIKE '".$search."%' LIMIT 0 , 5");
 
 if($pdo->query('SELECT FOUND_ROWS();')->fetch(PDO::FETCH_COLUMN) > 0) {
     foreach ($query as $raw) {
-        echo "<div class='city_s'>" . $raw['regi'] . " " . $raw['city'] . "<span class='city_id' style='display: none'>".$raw['id']."</span></div>";
+        echo "<div class='city_s' id='".$raw['id']."'>" . $raw['regi'] . ", " . $raw['city'] . "</div>";
     };
 }
 else{
