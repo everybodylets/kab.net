@@ -79,7 +79,6 @@ function new_client(){
 };
 function addgetclient(){
     var DataForm = $('#client-sky-form').serializeArray();
-    console.log(DataForm);
     $.ajax({
         type: "POST",
         url: "addgetclient.php",
@@ -90,3 +89,4 @@ function addgetclient(){
         }
     })
 }
+

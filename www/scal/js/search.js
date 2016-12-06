@@ -4,7 +4,6 @@
 $(function(){
     $("#find").keyup(function(){
         var search = $("#find").val();
-        alert(search);
         if (search.length>3){
             $.ajax({
                 type: "POST",

@@ -95,3 +95,16 @@ function cleanDop(){
         document.getElementById("CountCat").innerHTML = "Выбрано: 0"
     }
 }
+function addupdclient(){
+    var DataForm = $('#upd-sky-form').serializeArray();
+    console.log(DataForm);
+    $.ajax({
+        type: "POST",
+        url: "addupdclient.php",
+        data: DataForm,
+        success:function(data, textStatus, jqXHR)
+        {
+            $('#msg').html(data);
+        }
+    })
+}

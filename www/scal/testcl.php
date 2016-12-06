@@ -9,7 +9,7 @@ require("lib/base.php");
 $client_id = $_GET['id'];
 $count=0;
 
-$query = $pdo->prepare("SELECT *, polises.id as poid FROM patients, polises, oc_t_city, price WHERE patients.id=? AND polises.patid=patients.id AND patients.city=oc_t_city.pk_i_id");
+$query = $pdo->prepare("SELECT *, polises.id as poid, patients.id as paid FROM patients, polises, oc_t_city, price WHERE patients.id=? AND polises.patid=patients.id AND patients.city=oc_t_city.pk_i_id");
 $query->execute(array($client_id));
 $final=$query->fetch();
 $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
@@ -22,7 +22,7 @@ $dir = "uploads/".$client_id;
 $files1 = @scandir($dir);
 $files = @array_diff($files1, array('.', '..'));
 ?>
-<form class="sky-form-my" id="main-sky-form" action="search.php" method="post" onsubmit="return false;">
+<form class="sky-form-my" id="upd-sky-form" action="search.php" method="post" onsubmit="return false;">
     <header><?=$final['lname']." ".$final['fname']." ".$final['mname']; ?></header>
 
     <fieldset>
@@ -30,6 +30,8 @@ $files = @array_diff($files1, array('.', '..'));
             <label class="label">Фамилия</label>
             <label class="input state-success">
                 <input type="text" name="lname" autocomplete="off" value="<?=$final['lname']; ?>">
+                <input type="text" name="poid" value="<?=$final['poid']; ?>" style="display: none">
+                <input type="text" name="paid" value="<?=$final['paid']; ?>" style="display: none">
             </label>
         </section>
         <section class="sec">
@@ -49,7 +51,7 @@ $files = @array_diff($files1, array('.', '..'));
         <section class="secleft">
             <label class="label">Дата рождения</label>
             <label class="input state-success">
-                <input type="text" name="bday" id="datepicker" autocomplete="off" value="<?=$final['bdate']; ?>">
+                <input type="text" name="bdate" id="datepicker" autocomplete="off" value="<?=$final['bdate']; ?>">
             </label>
             <label class="label">Паспорт</label>
             <label class="input state-success">
@@ -60,7 +62,9 @@ $files = @array_diff($files1, array('.', '..'));
         <section class="secleft">
             <label class="label">Город</label>
             <label class="input state-success">
-                <input type="text" name="city" autocomplete="off" value="<?=$final['s_name']; ?>">
+                <input id="cityid" type="text" name="cityid" value="<?=$final['pk_i_id']; ?>" style="display: none">
+                <input id="city" type="text" name="city" autocomplete="off" value="<?=$final['s_name']; ?>">
+                <div class="checkboxescity"></div>
             </label>
             <label class="label">Адрес проживания</label>
             <label class="input state-success">
@@ -215,4 +219,40 @@ $files = @array_diff($files1, array('.', '..'));
             </div>
         </section>
     </fieldset>
+    <fieldset>
+        <section>
+            <input class="buttonsub" type="submit" name="submit" value="Обновить" onclick="addupdclient()" <? echo ($_SESSION['role']==0 ? '' : 'style="display: none"');?>>
+        </section>
+    </fieldset>
 </form>
+<div id="msg"><?=$_SESSION['role']?></div>
+<script>
+    $(function () {
+        $("#city").keyup(function () {
+            var search = $("#city").val();
+            if (search.length > 3) {
+                $.ajax({
+                    type: "POST",
+                    url: "searchcity.php",
+                    data: {"search": search},
+                    cache: false,
+                    success: function (response) {
+                        $(".checkboxescity").show();
+                        $(".checkboxescity").html(response);
+                        $(".city_s").click(function () {
+                            $("#cityid").val($(this).attr("id"));
+                            $("#city").val($(this).text());
+                            $(".checkboxescity").hide();
+                        });
+
+                    }
+                });
+            }
+            else {
+                $(".checkboxescity").html('');
+
+            }
+        });
+
+    })
+</script>

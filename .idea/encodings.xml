@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/www/addupdclient.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/cale/php/datafeed.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/cale/php/dbconfig.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/cale/sample.php" charset="UTF-8" />
@@ -11,9 +12,11 @@
     <file url="file://$PROJECT_DIR$/www/chat/public/02_index.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/chat/public/ajax/get_messages.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/chat/public/scripts/chat.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/dog.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/ind.htm" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/addclient.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/addgetclient.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/scal/addupdclient.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/chat/FbChatMock.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/chat/add_msg.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/chat/core.css" charset="UTF-8" />
@@ -32,6 +35,7 @@
     <file url="file://$PROJECT_DIR$/www/scal/login/demo.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/login/index.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/login/sky-forms.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/scal/logout/index.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/pdf.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/search.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/searchcity.php" charset="UTF-8" />

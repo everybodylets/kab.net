@@ -10,8 +10,7 @@ $querypat->bindValue(":passport", $_POST['passport']);
 $querypat->bindValue(":addr", $_POST['addr']);
 $querypat->bindValue(":city", $_POST['cityid']);
 $querypat->bindValue(":medstory", $_POST['medstory']);
-//$querypat->bindValue(":temp4", $_POST['noz']);
-//$querypat->bindValue(":temp5", $_POST['op']);
+
 $querypat->execute();
 $lastid = $pdo->lastInsertId();
 //echo $lastid;

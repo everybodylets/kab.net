@@ -5,8 +5,8 @@ if ($_SESSION['authorized']<>1) {
     exit;
 }
 header('Content-Type: text/html; charset=utf-8');
-//require_once "../pdf/dompdf/autoload.inc.php";
-require_once("../pdf/dompdf/dompdf_config.inc.php");
+//require_once "pdf/dompdf/autoload.inc.php";
+require_once("pdf/dompdf/dompdf_config.inc.php");
 //use Dompdf\Dompdf;
 $dompdf = new Dompdf();
 

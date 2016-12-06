@@ -182,6 +182,4 @@ $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
         });
 
     })
-
-
 </script>
