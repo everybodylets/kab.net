@@ -76,7 +76,7 @@ function load_client(id){
                             //console.log(options);
                         }
                         selectDop.append(optionsDop);
-                        var limit = 3;
+                        var limit = 6;
                         $('input.single-checkbox').on('change', function(evt) {
                             if($(this).siblings(':checked').length >= limit) {
                                 this.checked = false;

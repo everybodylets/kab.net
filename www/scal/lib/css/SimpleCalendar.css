@@ -27,18 +27,21 @@ table.SimpleCalendar {
     table.SimpleCalendar tbody td.SCsuffix, table.SimpleCalendar tbody td.SCprefix {
       background: white; }
     table.SimpleCalendar tbody td div.event {
-      color: #a7f4f1;
+      /*color: #a7f4f1;*/
       font-size: .65em;
       padding: 5px;
       line-height: 1em;
       border-bottom: 1px solid #bbb;
-      background: #a7f4f1;
+      background: #52b2dc;
       color: #010501; }
   table.SimpleCalendar tbody td.today {
-    background: #d2d2d2; }
+    background: #666; }
   table.SimpleCalendar th a:hover{
     cursor: pointer;
   }
+table.SimpleCalendar tbody td div.event a:hover{
+  cursor: pointer;
+}
 
 BODY {
   background: rgb(209, 235, 209);

@@ -23,7 +23,7 @@ $files1 = @scandir($dir);
 $files = @array_diff($files1, array('.', '..'));
 ?>
 <form class="sky-form-my" id="main-sky-form" action="search.php" method="post" onsubmit="return false;">
-    <header><?=$final['lname']." ".$final['fname']." ".$final['mname'].$final['poid']; ?></header>
+    <header><?=$final['lname']." ".$final['fname']." ".$final['mname']; ?></header>
 
     <fieldset>
         <section class="sec">
@@ -198,7 +198,7 @@ $files = @array_diff($files1, array('.', '..'));
         <section>
             <label class="label">История болезни</label>
             <label class="textarea state-success">
-                <textarea name="medstory"><?=$add['noz']; ?></textarea>
+                <textarea name="medstory"><?=$final['medstory']; ?></textarea>
             </label>
             <label class="label">Загрузка файлов</label>
             <label class="inputfiles state-success">

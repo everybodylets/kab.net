@@ -26,14 +26,14 @@ echo $out;
 $calendar = new donatj\SimpleCalendar();
 $calendar->setDate($nn);
 $calendar->setStartOfWeek('Monday');
-$res = $pdo->prepare("SELECT polises.id, patients.id, startdate, lname, fname FROM polises JOIN patients WHERE startdate >= :first AND startdate <= :last AND polises.patid=patients.id");
+$res = $pdo->prepare("SELECT polises.id, patients.id AS paaid, startdate, lname, fname FROM polises JOIN patients WHERE startdate >= :first AND startdate <= :last AND polises.patid=patients.id");
 $res->bindValue(':first', $first);
 $res->bindValue(':last', $last);
 $res->execute();
 $finish = $res->fetchAll();
 foreach($finish as $raw){
 //    echo $raw['startdate'];
-    $calendar->addDailyHtml('<a href="google.com">'.$raw["fname"].' '.$raw["lname"].'</a>', $raw['startdate']);
+    $calendar->addDailyHtml('<a onClick="load_client('.$raw["paaid"].')">'.$raw["fname"].' '.$raw["lname"].'</a>', $raw['startdate']);
 }
 $calendar->show(true);
 ?>
