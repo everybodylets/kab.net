@@ -1,0 +1,69 @@
+table.SimpleCalendar {
+  font-family: Arial;
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+}
+  table.SimpleCalendar th {
+    background: #C9E9F0;
+    color: #0092B4;
+    font-size: 11px;
+    padding: 3px;
+    border: 1px solid #bbb;
+    border-top: none; }
+  table.SimpleCalendar tbody td {
+    vertical-align: top;
+    width: 90px;
+    height: 90px;
+    border: 1px solid #bbb;
+    background: #e6e6e6; }
+    table.SimpleCalendar tbody td time {
+      font-size: .7em;
+      display: block;
+      background: white;
+      padding: 2px;
+      text-align: right;
+      font-weight: bold; }
+    table.SimpleCalendar tbody td.SCsuffix, table.SimpleCalendar tbody td.SCprefix {
+      background: white; }
+    table.SimpleCalendar tbody td div.event {
+      /*color: #a7f4f1;*/
+      font-size: .75em;
+      padding: 5px;
+      line-height: 1em;
+      border-bottom: 1px solid #bbb;
+      background: #52b2dc;
+      color: rgba(255, 255, 255, 1); }
+  table.SimpleCalendar tbody td.today {
+    background: #666; }
+  table.SimpleCalendar th a:hover{
+    cursor: pointer;
+  }
+table.SimpleCalendar tbody td div.event a:hover{
+  cursor: pointer;
+}
+
+BODY {
+  background: rgb(209, 235, 209);
+  overflow-x: hidden;
+  position: relative;
+  height: 100%;}
+.head{
+  /*background: rgb(240, 255, 240);*/
+  height: 8%;
+  font: 20px/1.55 'Roboto', Helvetica, Arial, sans-serif;
+  color: #0d560d;
+}
+#rpanel{
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  width: 75%;
+  float: left;
+  margin-bottom:50px;
+  margin-left: 10px;
+}
+.lpanel{
+  width: 20%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  float: left;
+  background: #FFF;
+}

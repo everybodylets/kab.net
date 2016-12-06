@@ -1,0 +1,207 @@
+.sky-form-my {
+    margin: 0;
+    outline: none;
+    box-shadow: 0 0 20px rgba(0,0,0,.3);
+    font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
+    color: #666;
+}
+.sky-form-my * {
+    margin: 0;
+    padding: 0;
+}
+.sky-form-my header {
+    display: block;
+    padding: 5px 5px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    background: rgba(248,248,248,.9);
+    font-size: 25px;
+    font-weight: 300;
+    color: #232323;
+}
+.sky-form-my fieldset {
+    display: block;
+    padding: 5px 10px 5px;
+    border: none;
+    background: rgba(255,255,255,.9);
+}
+.sky-form-my fieldset + fieldset {
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.sky-form-my section {
+    margin-bottom: 10px;
+}
+
+.sky-form-my .input,
+.sky-form-my .select,
+.sky-form-my .button{
+    position: relative;
+    display: block;
+}
+.sky-form-my .input input,
+.sky-form-my .select select{
+    display: block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /*width: 100%;*/
+    height: 39px;
+    padding: 8px 10px;
+    outline: none;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 0;
+    background: #fff;
+    font: 15px/19px 'Open Sans', Helvetica, Arial, sans-serif;
+    color: #404040;
+    appearance: normal;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.sky-form-my .inputfiles input {
+    /*display: block;*/
+    border-color: #e5e5e5;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /*width: 100%;*/
+    height: 39px;
+    padding: 8px 10px;
+    outline: none;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 0;
+    background: #fff;
+    font: 15px/19px 'Open Sans', Helvetica, Arial, sans-serif;
+    color: #404040;
+    appearance: normal;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.sky-form-my .long{
+    width: 340px;
+}
+.sky-form-my .label{
+    display: block;
+    margin-bottom: 2px;
+    line-height: 19px;
+    margin-top: 5px;
+}
+
+.sky-form-my .input input:focus,
+.sky-form-my .select select:focus
+{
+    border-color: #2da5da;
+}
+.sky-form-my .state-success input,
+.sky-form-my .state-success textarea,
+.sky-form-my .state-success select{
+    background: #f0fff0;
+}
+.sky-form-my .input:hover input,
+.sky-form-my .select:hover select{
+    border-color: #8dc9e5;
+}
+.sky-form-my .input input,
+.sky-form-my .textarea textarea,
+.sky-form-my .select select{
+    border-color: #e5e5e5;
+    transition: border-color 0.3s;
+    -o-transition: border-color 0.3s;
+    -ms-transition: border-color 0.3s;
+    -moz-transition: border-color 0.3s;
+    -webkit-transition: border-color 0.3s;
+}
+.sky-form-my .sec{
+    margin-left: 5px;
+    float:left;
+}
+.sky-form-my .secleft{
+    float:left;
+    margin-left: 10px;
+}
+.loadfiles{
+    cursor: pointer;
+}
+
+.sky-form-my fieldset {
+    display: block;
+    padding: 5px 10px 5px;
+    border: none;
+    background: rgba(255,255,255,.9);
+}
+.sky-form-my fieldset + fieldset {
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.sky-form-my .textarea textarea {
+    display: block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    height: 115px;
+    padding: 8px 10px;
+    outline: none;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 0;
+    /*background: #fff;*/
+    font: 15px/19px 'Open Sans', Helvetica, Arial, sans-serif;
+    color: #404040;
+    appearance: normal;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+.sky-form-my .textarea textarea {
+    /*height: auto;*/
+    resize: none;
+}
+.sky-form-my .textarea-resizable textarea {
+    resize: vertical;
+}
+.sky-form-my .textarea-expandable textarea {
+    height: 39px;
+}
+.sky-form-my .textarea-expandable textarea:focus {
+    height: auto;
+}
+.sky-form-my .buttonsub {
+    float: center;
+    height: 39px;
+    overflow: hidden;
+    margin: 10px 0 0 20px;
+    padding: 0 25px;
+    padding: 0 25px;
+    outline: none;
+    border: 0;
+    font: 300 15px/39px 'Open Sans', Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+.sky-form-my .buttonsub {
+    background-color: #2da5da;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
+    -ms-transition: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    -webkit-transition: opacity 0.2s;
+}
+.selectBox {
+    position: relative;
+}
+
+.overSelect {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+}
+.checkboxes {
+    display: none;
+    background-color: #f0fff0;
+    border: 0px #cacaca solid;
+}
+.checkboxes label {
+    display: block;
+}
+.city_s:hover{
+    background: #6fb679;
+}
