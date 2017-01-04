@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/www/addgetclient.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/addupdclient.php" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/cale/php/datafeed.php" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/cale/php/dbconfig.php" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/cale/sample.php" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/cale/src/Plugins/jquery.calendar.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/cale/src/Plugins/wdCalendar_lang_US.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/chat/core/FbChatMock.php" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/chat/max.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/chat/public/02_index.php" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/chat/public/ajax/get_messages.php" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/chat/public/scripts/chat.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/calc/index.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/calc/sky.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/dog.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/ind.htm" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/lib/css/SimpleCalendar.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/lib/css/my.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/lib/css/tabs.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/lib/css/tabstyles.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/addclient.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/addgetclient.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/addupdclient.php" charset="UTF-8" />
@@ -43,5 +38,10 @@
     <file url="file://$PROJECT_DIR$/www/scal/select_dop.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/select_op.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/testcl.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/select_ob.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/setting.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/settingdop.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/updnoz.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/uploads/temp" charset="UTF-8" />
   </component>
 </project>

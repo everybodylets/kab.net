@@ -34,5 +34,5 @@ for($i; $i<=8;$i++){
     $queryadd->bindValue($i,'NULL');
 }
 $queryadd->execute();
-
+echo $lastid;
 ?>

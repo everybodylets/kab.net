@@ -137,8 +137,12 @@ $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
                 <input type="text" id="costDop">
             </label>
         </section>
-
-
+        <section class="sec">
+            <label class="label">Общая сумма</label>
+            <label class="input state-success">
+                <input disabled type="text" id="costAll">
+            </label>
+        </section>
     </fieldset>
     <fieldset>
         <section>

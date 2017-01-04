@@ -63,6 +63,26 @@ function load_client(id){
                 });
                 $.ajax({
                     type: "GET",
+                    url : "select_ob.php",
+                    data: { id: sec},
+                    dataType:'json',
+                    success: function(data) {
+                        var select = $("#checkboxesOb"), options = '';
+                        var obescost = 0;
+                        select.empty();
+                        for(var i=0;i<data.length; i++)
+                        {
+                            options += "<option value='"+data[i].id+"'>"+data[i].name+" - "+data[i].price+"</option>";
+                            obescost = (+obescost + +data[i].price);
+                        }
+                        select.append(options);
+                        $("#costObes").val(obescost.toFixed(2));
+
+
+                    }
+                });
+                $.ajax({
+                    type: "GET",
                     url : "select_dop.php",
                     //data: { id: sec},
                     dataType:'json',
@@ -84,27 +104,29 @@ function load_client(id){
                         });
                     }
                 });
-            })
+            });
+            countDop();
         });
+
 };
 function cleanDop(){
     var inputElems = document.getElementsByName("categ[]");
     for (var i=0; i<inputElems.length; i++) {
         inputElems[i].checked = false;
         $("#costDop").val('');
+        $("#costAll").val('');
         document.getElementById("CountCat").innerHTML = "Выбрано: 0"
     }
 }
-function addupdclient(){
+function addupdclient() {
     var DataForm = $('#upd-sky-form').serializeArray();
-    console.log(DataForm);
     $.ajax({
         type: "POST",
         url: "addupdclient.php",
         data: DataForm,
-        success:function(data, textStatus, jqXHR)
-        {
+        success: function (data, textStatus, jqXHR) {
             load_client(data);
         }
     })
 }
+

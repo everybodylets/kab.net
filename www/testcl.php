@@ -13,6 +13,7 @@ $query = $pdo->prepare("SELECT *, polises.id as poid, patients.id as paid FROM p
 $query->execute(array($client_id));
 $final=$query->fetch();
 $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
+$queryobes = $pdo->prepare("SELECT * FROM price WHERE obes=?");
 $addpr = $pds->prepare("SELECT * FROM addprice WHERE polisid=?");
 $addpr->execute(array($final['poid']));
 $add=$addpr->fetch();
@@ -136,7 +137,30 @@ $files = @array_diff($files1, array('.', '..'));
         <section class="sec">
             <label class="label">Цена</label>
             <label class="input state-success">
-                <input type="text" id="cost" value="<?=$nozprice;?>">
+                <input type="text" id="cost" value="<?=$nozprice;//number_format((float)$nozprice, 2, '.', ' ');?>">
+            </label>
+        </section>
+        <section style = "clear: both; margin: 0;" ></section >
+        <section class="sec" >
+            <label class="label">Обеспечение</label>
+            <label class="select state-success">
+                <select class="long" id="checkboxesOb" name="ob">
+                    <option id="OptObes">Обеспечение</option>
+                    <?
+                    $queryobes->execute(array($add['noz']));
+                    $finalobes = $queryobes->fetchAll();
+                    foreach($finalobes as $rowob) {
+                            echo '<option value="' . $rowob['id'] . '">' . $rowob['name'] . ' - '. $rowob['price'] .'</option>';
+                        $costobes += $rowob["price"];
+                    };
+                    ?>
+                </select>
+            </label>
+        </section>
+        <section class="sec">
+            <label class="label">Цена</label>
+            <label class="input state-success">
+                <input type="text" id="costObes" value="<?=$costobes?>">
             </label>
         </section>
         <section style = "clear: both; margin: 0;" ></section >
@@ -196,7 +220,13 @@ $files = @array_diff($files1, array('.', '..'));
         <section class="sec">
             <label class="label">Цена</label>
             <label class="input state-success">
-                <input type="text" id="costDop" value="<?=number_format((float)$fprice, 2, '.', '');;?>">
+                <input type="text" id="costDop" value="<?=number_format((float)$fprice, 2, '.', ' ');?>">
+            </label>
+        </section>
+        <section class="sec">
+            <label class="label">Общая сумма</label>
+            <label class="input state-success">
+                <input disabled type="text" id="costAll">
             </label>
         </section>
     </fieldset>

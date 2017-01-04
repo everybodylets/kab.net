@@ -7,6 +7,7 @@ if ($_SESSION['authorized']<>1) {
 }
 require("lib/base.php");
 $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
+$queryobes = $pdo->prepare("SELECT * FROM price WHERE pid=?");
 ?>
 <form class="sky-form-my" id="client-sky-form" action="search.php" method="post" onsubmit="return false;">
     <header>Новый</header>
@@ -15,19 +16,19 @@ $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
         <section class="sec">
             <label class="label">Фамилия</label>
             <label class="input state-success">
-                <input type="text" name="lname" autocomplete="off">
+                <input type="text" name="lname" autocomplete="off" required>
             </label>
         </section>
         <section class="sec">
             <label class="label">Имя</label>
             <label class="input state-success">
-                <input type="text" name="fname" autocomplete="off">
+                <input class="warning" type="text" name="fname" autocomplete="off" required>
             </label>
         </section>
         <section class="sec">
             <label class="label">Отчество</label>
             <label class="input state-success">
-                <input type="text" name="mname" autocomplete="off">
+                <input type="text" name="mname" autocomplete="off" required>
             </label>
         </section>
     </fieldset>
@@ -93,6 +94,7 @@ $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
                     $finaladd = $queryadd->fetchAll();
                     foreach($finaladd as $row) {
                         echo '<option id="'.$row['price'].'" value="'.$row['id'].'">'.$row['cod'].' - '.$row['name'].'</option>';
+//                        $add = $row['id'];
                     };
                     ?>
                 </select>
@@ -102,6 +104,21 @@ $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
             <label class="label">Цена</label>
             <label class="input state-success">
                 <input type="text" id="cost">
+            </label>
+        </section>
+        <section style = "clear: both; margin: 0;" ></section >
+        <section class="sec" >
+            <label class="label">Обеспечение</label>
+            <label class="select state-success">
+                <select class="long" id="checkboxesOb" name="ob">
+                    <option id="OptObes" selected disabled>Обеспечение</option>
+                </select>
+            </label>
+        </section>
+        <section class="sec">
+            <label class="label">Цена</label>
+            <label class="input state-success">
+                <input type="text" id="costObes">
             </label>
         </section>
         <section style = "clear: both; margin: 0;" ></section >
@@ -137,8 +154,12 @@ $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
                 <input type="text" id="costDop">
             </label>
         </section>
-
-
+        <section class="sec">
+            <label class="label">Общая сумма</label>
+            <label class="input state-success">
+                <input disabled type="text" id="costAll">
+            </label>
+        </section>
     </fieldset>
     <fieldset>
         <section>

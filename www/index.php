@@ -5,14 +5,14 @@ if ($_SESSION['authorized']<>1) {
     header("Location: login");
     exit;
 }
-//$_SESSION['user_id'] = $_GET['user'];
-//echo $_SESSION['user_id'];
 require_once 'chat/FbChatMock.php';
 $chat = new FbChatMock();
 $messages = $chat->getMessages();
 ?>
 <html>
 <head>
+    <title>СК Альянс-Гарант</title>
+    <link rel="icon" href="/logo.png"/>
     <link rel="stylesheet" href="lib/css/SimpleCalendar.css" />
     <link rel="stylesheet" href="lib/css/sky.css" />
     <link rel="stylesheet" href="lib/css/my.css" />
@@ -26,7 +26,7 @@ $messages = $chat->getMessages();
 </head>
 <body>
 <div class="head">
-
+<a style="font-size: small; float: right; margin: 10px" onclick="setting()">Настройки</a>
 </div>
 <div class="lpanel">
     <form class="sky-form" id="main-sky-form" action="search.php" method="post" onsubmit="return false;">
@@ -118,7 +118,7 @@ MSG;
         } else {
             checkboxes.style.display = "none";
             expandedCat = false;
-            document.getElementById("OptDop").innerHTML = "Выберите категорию";
+            document.getElementById("OptDop").innerHTML = "Выберите дополнения";
 
 
         }
@@ -126,7 +126,7 @@ MSG;
     function countDop(){
         var inputElems = document.getElementsByName("categ[]"),
             count = 0;
-            countPrice = 0;
+        countPrice = 0;
         for (var i=0; i<inputElems.length; i++) {
             if (inputElems[i].type === "checkbox" && inputElems[i].checked === true){
                 if(count<3){
@@ -138,8 +138,34 @@ MSG;
             }
         }
         $("#costDop").val(countPrice.toFixed(2));
+        var costObes = $("#costObes").val();
+        console.log(costObes);
+        var cost = $("#cost").val();
+        var countAll = (+countPrice + +cost + +costObes);
+        $("#costAll").val(countAll.toFixed(2));
         document.getElementById("CountCat").innerHTML = "Выбрано: " + count;
 
     }
-
+    function setting(sw){
+        if(sw==1) {
+            $('#rpanel').load('setting.php');
+        }
+        elseif(sw==2){
+            $('#rpanel').load('settingdop.php');
+        }
+    }
+    function updnoz(co) {
+        var codi = document.getElementById('cod'+co);
+        var namei = document.getElementById('name'+co);
+        var pricei = document.getElementById('price'+co);
+        $.ajax({
+            type: "POST",
+            url: "updnoz.php",
+            data: {id:co, cod:codi.value, name:namei.value, price:pricei.value},
+            success: function () {
+                setting();
+            }
+        })
+    }
 </script>
+
