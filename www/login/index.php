@@ -1,6 +1,7 @@
 <?
 header('Content-Type: text/html; charset=utf-8');
 session_start();
+echo $_SESSION['user_id'];
 if(isset($_SESSION['user_id'])){ header('Location: /');}
 else{
     if(isset($_POST['login']) & isset($_POST['password'])) {
@@ -9,6 +10,7 @@ else{
         $res->execute(array($_POST['login']));
         $final = $res->fetch();
         if($pdo->query('SELECT FOUND_ROWS();')->fetch(PDO::FETCH_COLUMN) > 0){
+
             if(md5($_POST['password'])==$final['password']){
                 $_SESSION['user_id']=$final['id'];
                 $_SESSION['username']=$final['username'];
@@ -16,6 +18,7 @@ else{
                 $_SESSION['authorized']=1;
                 header('Location: /');
             }
+
         }
     }
 }

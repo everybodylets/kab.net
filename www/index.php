@@ -26,7 +26,7 @@ $messages = $chat->getMessages();
 </head>
 <body>
 <div class="head">
-<a style="font-size: small; float: right; margin: 10px" onclick="setting()">Настройки</a>
+<a style="font-size: small; float: right; margin: 10px" onclick="setting(1)">Настройки</a>
 </div>
 <div class="lpanel">
     <form class="sky-form" id="main-sky-form" action="search.php" method="post" onsubmit="return false;">
@@ -146,26 +146,44 @@ MSG;
         document.getElementById("CountCat").innerHTML = "Выбрано: " + count;
 
     }
-    function setting(sw){
-        if(sw==1) {
-            $('#rpanel').load('setting.php');
-        }
-        elseif(sw==2){
-            $('#rpanel').load('settingdop.php');
-        }
-    }
-    function updnoz(co) {
+
+
+    function updnoz(co, mod, sw) {
         var codi = document.getElementById('cod'+co);
         var namei = document.getElementById('name'+co);
         var pricei = document.getElementById('price'+co);
         $.ajax({
             type: "POST",
             url: "updnoz.php",
-            data: {id:co, cod:codi.value, name:namei.value, price:pricei.value},
+            data: {id:co, cod:codi.value, name:namei.value, price:pricei.value, mode:mod},
             success: function () {
-                setting();
+                setting(sw);
             }
         })
+    }
+
+    function setting(sw){
+        if(sw==1) {$('#rpanel').load('setting.php');}
+        else if(sw==3) {$('#rpanel').load('settingdop.php');}
+        else if(sw==2) {
+            $('#rpanel').load('settingobes.php', function(){
+                $("#selnoz").change(function(){
+                var sec = $("#selnoz").val();
+                $.ajax({
+                    type: "GET",
+                    url : "select_ob.php",
+                    data: {id: sec},
+                    dataType:'json',
+                    success: function(data) {
+                        var list = $("#field"), options = '';
+                        list.empty();
+                        for(var i=0;i<data.length; i++)
+                    {options += "<fieldset><input id='cod"+data[i].id+"' type='text' value="+data[i].id+" style='display:none'><section class='sec'><label class='label'>Название</label><label class='input state-success'><input id='name"+data[i].id+"' type='text' name='name' autocomplete='off' value='"+data[i].name+"'></label></section><section class='sec'><label class='label'>Цена</label><label class='input state-success'><input id='price"+data[i].id+"' type='text' name='price' autocomplete='off' value='" + data[i].price + "'></label></section><section><input class='buttonsub' type='button' value='Обновить' onclick='updnoz("+data[i].id+", \"updobes\", 2)'></section></fieldset>";}
+                            list.append(options);}
+                });
+            });
+        });
+        }
     }
 </script>
 

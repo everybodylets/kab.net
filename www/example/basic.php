@@ -1,8 +1,9 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 session_start();
+echo "234455";
 if ($_SESSION['authorized']<>1) {
-    header("Location: /scal/login");
+    header("Location: /login");
     exit;
 }
 require_once "../lib/base.php";

@@ -17,7 +17,7 @@ class FbChatMock {
 
     private $_dbUsername = 'root';
 
-    private $_dbPassword = '';
+    private $_dbPassword = '123';
 
     public $_databaseName = 'sk';
 

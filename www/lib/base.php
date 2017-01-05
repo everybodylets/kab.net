@@ -2,7 +2,7 @@
 $host="localhost";
 $db = "sk";
 $user = "root";
-$pass = "";
+$pass = "123";
 
 $dsn = "mysql:host=$host;dbname=$db;charset=utf8";
 $opt = array(
