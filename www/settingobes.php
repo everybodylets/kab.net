@@ -34,26 +34,26 @@ $queryadd = $pdo->prepare("SELECT * FROM price WHERE pid=?");
         </section>
     </fieldset>
 
-    <fieldset id="field">
+    <div id="field">
 
-    </fieldset>
+    </div>
     <fieldset>
-
+        <input id="noznew" type="text" name="noz">
         <section class="sec">
             <label class="label">Название</label>
             <label class="input state-success">
-                <input id="newname" type="text" name="name" autocomplete="off">
+                <input id="namenew" type="text" name="name" autocomplete="off">
             </label>
         </section>
         <section class="sec">
             <label class="label">Цена</label>
             <label class="input state-success">
-                <input id="newprice" type="text" name="price" autocomplete="off">
+                <input id="pricenew" type="text" name="price" autocomplete="off">
             </label>
         </section>
         <section>
             <label class="label"> </label>
-            <input class="buttonsub" type="button" value="Добавить" onclick="addnoz(2)">
+            <input class="buttonsub" type="button" value="Добавить" onclick="addnoz('addobes',2)">
 
         </section>
     </fieldset>

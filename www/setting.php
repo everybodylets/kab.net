@@ -67,7 +67,7 @@ foreach($finaladd as $row) {
         </section>
         <section>
             <label class="label"> </label>
-            <input class="buttonsub" type="button" value="Добавить" onclick="addnoz(1)">
+            <input class="buttonsub" type="button" value="Добавить" onclick="addnoz('addnoz',1)">
 
         </section>
     </fieldset>

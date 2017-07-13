@@ -46,18 +46,18 @@ require("lib/base.php");
         <section class="sec">
             <label class="label">Название</label>
             <label class="input state-success">
-                <input id="newname" type="text" name="name" autocomplete="off">
+                <input id="namenew" type="text" name="name" autocomplete="off">
             </label>
         </section>
         <section class="sec">
             <label class="label">Цена</label>
             <label class="input state-success">
-                <input id="newprice" type="text" name="price" autocomplete="off">
+                <input id="pricenew" type="text" name="price" autocomplete="off">
             </label>
         </section>
         <section>
             <label class="label"> </label>
-            <input class="buttonsub" type="button" value="Добавить" onclick="addnoz(3)">
+            <input class="buttonsub" type="button" value="Добавить" onclick="addnoz('adddop',3)">
 
         </section>
     </fieldset>

@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/www/calc/index.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/calc/sky.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/dog.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/js/sett.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/lib/css/SimpleCalendar.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/lib/css/my.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/scal/addclient.php" charset="UTF-8" />
@@ -43,4 +44,3 @@
     <file url="file://$PROJECT_DIR$/www/uploads/temp" charset="UTF-8" />
   </component>
 </project>
-
